@@ -1,19 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://xyxd.github.io/blog/2013/05/16/hello-world/</loc>
-        <lastmod>2013-05-16T13:17:40+08:00</lastmod>
+        <loc>http://xyxdasnjss.github.io/blog/2013/05/16/hello-world/</loc>
+        <lastmod>2013-05-16T13:32:28+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxd.github.io/blog/archives/</loc>
-        <lastmod>2013-05-16T13:17:40+08:00</lastmod>
+        <loc>http://xyxdasnjss.github.io/blog/2013/05/17/app/</loc>
+        <lastmod>2013-05-17T09:19:01+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxd.github.io/</loc>
-        <lastmod>2013-05-16T13:17:40+08:00</lastmod>
+        <loc>http://xyxdasnjss.github.io/blog/2013/05/17/uiimageview-yin-ying/</loc>
+        <lastmod>2013-05-17T16:50:55+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxd.github.io/robots.txt</loc>
+        <loc>http://xyxdasnjss.github.io/blog/archives/</loc>
+        <lastmod>2013-05-17T16:50:55+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://xyxdasnjss.github.io/blog/ios/</loc>
+        <lastmod>2013-05-16T17:59:42+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://xyxdasnjss.github.io/</loc>
+        <lastmod>2013-05-17T16:50:55+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://xyxdasnjss.github.io/robots.txt</loc>
         <lastmod>2013-05-16T10:45:01+08:00</lastmod>
     </url>
 </urlset>

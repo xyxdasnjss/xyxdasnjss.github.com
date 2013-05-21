@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[轩辕喜东]]></title>
-  <link href="http://xyxd.github.io/atom.xml" rel="self"/>
-  <link href="http://xyxd.github.io/"/>
-  <updated>2013-05-16T13:22:46+08:00</updated>
-  <id>http://xyxd.github.io/</id>
+  <link href="http://xyxdasnjss.github.io/atom.xml" rel="self"/>
+  <link href="http://xyxdasnjss.github.io/"/>
+  <updated>2013-05-21T20:35:09+08:00</updated>
+  <id>http://xyxdasnjss.github.io/</id>
   <author>
     <name><![CDATA[轩辕 喜东]]></name>
     
@@ -14,10 +14,71 @@
 
   
   <entry>
+    <title type="html"><![CDATA[UIImageView 阴影]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/17/uiimageview-yin-ying/"/>
+    <updated>2013-05-17T16:45:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/17/uiimageview-yin-ying</id>
+    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// Add background tile  
+</span><span class='line'>UIImage *bgImage = [UIImage imageNamed:@"embedded_bg.png"];  
+</span><span class='line'>self.view.backgroundColor = [UIColor colorWithPatternImage:bgImage];  
+</span><span class='line'>  
+</span><span class='line'>// Add the reference view  
+</span><span class='line'>UIImage *image = [UIImage imageNamed:@"dccp.jpeg"];  
+</span><span class='line'>UIImageView *imgView = [[UIImageView alloc] initWithImage:image];  
+</span><span class='line'>[self.view addSubview:imgView];  
+</span><span class='line'>imgView.center = self.view.center;  
+</span><span class='line'>  
+</span><span class='line'>imgView.layer.shadowColor = [UIColor blackColor].CGColor;  
+</span><span class='line'>imgView.layer.shadowOpacity = 0.7f;  
+</span><span class='line'>imgView.layer.shadowOffset = CGSizeMake(10.0f, 10.0f);  
+</span><span class='line'>imgView.layer.shadowRadius = 5.0f;  
+</span><span class='line'>imgView.layer.masksToBounds = NO;  
+</span><span class='line'>  
+</span><span class='line'>//如果没有这句，渲染会很卡  
+</span><span class='line'>UIBezierPath *path = [UIBezierPath bezierPathWithRect:imgView.bounds];  
+</span><span class='line'>imgView.layer.shadowPath = path.CGPath;  
+</span><span class='line'>  
+</span><span class='line'>[imgView release];  
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[App]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/17/app/"/>
+    <updated>2013-05-17T09:18:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/17/app</id>
+    <content type="html"><![CDATA[<p>记单词、背单词</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[hello world]]></title>
-    <link href="http://xyxd.github.io/blog/2013/05/16/hello-world/"/>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/16/hello-world/"/>
     <updated>2013-05-16T11:13:00+08:00</updated>
-    <id>http://xyxd.github.io/blog/2013/05/16/hello-world</id>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/16/hello-world</id>
     <content type="html"><![CDATA[<p>Hello world!</p>
 ]]></content>
   </entry>
