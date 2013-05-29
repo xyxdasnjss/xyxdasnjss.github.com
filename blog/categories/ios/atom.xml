@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: iOS | 轩辕喜东]]></title>
+  <link href="http://xyxdasnjss.github.io/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://xyxdasnjss.github.io/"/>
+  <updated>2013-05-29T17:05:42+08:00</updated>
+  <id>http://xyxdasnjss.github.io/</id>
+  <author>
+    <name><![CDATA[轩辕 喜东]]></name>
+    <email><![CDATA[xyxdasnjss@163.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[获取UITableView内部高度]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/29/huo-qu-uitableviewnei-bu-gao-du/"/>
+    <updated>2013-05-29T17:01:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/29/huo-qu-uitableviewnei-bu-gao-du</id>
+    <content type="html"><![CDATA[<p><code>
+- (CGFloat)tableViewHeight
+{
+   [tableView layoutIfNeeded];
+   return [tableView contentSize].height;
+}
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[画虚线 未验证]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/23/hua-xu-xian-wei-yan-zheng/"/>
+    <updated>2013-05-23T13:33:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/23/hua-xu-xian-wei-yan-zheng</id>
+    <content type="html"><![CDATA[<p>```
+//画虚线
+CAShapeLayer *_shapeLayer = [CAShapeLayer layer];
+//creating a path
+CGMutablePathRef path = CGPathCreateMutable();
+float cornerRadius = 15;
+//drawing a border around a view
+CGPathMoveToPoint(path, NULL, 0, frame.size.height &ndash; cornerRadius);
+CGPathAddLineToPoint(path, NULL, 0, cornerRadius);
+CGPathAddArc(path, NULL, cornerRadius, cornerRadius, cornerRadius, M_PI, -M_PI_2, NO);
+CGPathAddLineToPoint(path, NULL, frame.size.width &ndash; cornerRadius, 0);
+CGPathAddArc(path, NULL, frame.size.width &ndash; cornerRadius, cornerRadius, cornerRadius, -M_PI_2, 0, NO);
+CGPathAddLineToPoint(path, NULL, frame.size.width, frame.size.height &ndash; cornerRadius);
+CGPathAddArc(path, NULL, frame.size.width &ndash; cornerRadius, frame.size.height &ndash; cornerRadius, cornerRadius, 0, M_PI_2, NO);
+CGPathAddLineToPoint(path, NULL, cornerRadius, frame.size.height);
+CGPathAddArc(path, NULL, cornerRadius, frame.size.height &ndash; cornerRadius, cornerRadius, M_PI_2, M_PI, NO);</p>
+
+<p>//path is set as the <em>shapeLayer object&rsquo;s path
+</em>shapeLayer.path = path;
+CGPathRelease(path);</p>
+
+<p><em>shapeLayer.backgroundColor = [[UIColor clearColor] CGColor];
+</em>shapeLayer.frame = frame;
+<em>shapeLayer.masksToBounds = NO;
+[</em>shapeLayer setValue:[NSNumber numberWithBool:NO] forKey:@&ldquo;isCircle&rdquo;];
+<em>shapeLayer.fillColor = [[UIColor clearColor] CGColor];
+</em>shapeLayer.strokeColor = [[UIColor redColor] CGColor];
+<em>shapeLayer.lineWidth = 1;
+</em>shapeLayer.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:10], nil];
+_shapeLayer.lineCap = kCALineCapRound;</p>
+
+<p>//<em>shapeLayer is added as a sublayer of the view
+[self.imageBg.layer addSublayer:</em>shapeLayer];
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[UIImageView 阴影]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/17/uiimageview-yin-ying/"/>
+    <updated>2013-05-17T16:45:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/17/uiimageview-yin-ying</id>
+    <content type="html"><![CDATA[<p>```
+// Add background tile<br/>
+UIImage *bgImage = [UIImage imageNamed:@&ldquo;embedded_bg.png&rdquo;];<br/>
+self.view.backgroundColor = [UIColor colorWithPatternImage:bgImage];</p>
+
+<p>// Add the reference view<br/>
+UIImage <em>image = [UIImage imageNamed:@&ldquo;dccp.jpeg&rdquo;];<br/>
+UIImageView </em>imgView = [[UIImageView alloc] initWithImage:image];<br/>
+[self.view addSubview:imgView];<br/>
+imgView.center = self.view.center;</p>
+
+<p>imgView.layer.shadowColor = [UIColor blackColor].CGColor;<br/>
+imgView.layer.shadowOpacity = 0.7f;<br/>
+imgView.layer.shadowOffset = CGSizeMake(10.0f, 10.0f);<br/>
+imgView.layer.shadowRadius = 5.0f;<br/>
+imgView.layer.masksToBounds = NO;</p>
+
+<p>//如果没有这句，渲染会很卡<br/>
+UIBezierPath *path = [UIBezierPath bezierPathWithRect:imgView.bounds];<br/>
+imgView.layer.shadowPath = path.CGPath;</p>
+
+<p>[imgView release];</p>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[App]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/17/app/"/>
+    <updated>2013-05-17T09:18:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/17/app</id>
+    <content type="html"><![CDATA[<p>记单词、背单词</p>
+]]></content>
+  </entry>
+  
+</feed>

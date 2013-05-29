@@ -4,14 +4,106 @@
   <title><![CDATA[轩辕喜东]]></title>
   <link href="http://xyxdasnjss.github.io/atom.xml" rel="self"/>
   <link href="http://xyxdasnjss.github.io/"/>
-  <updated>2013-05-21T20:35:09+08:00</updated>
+  <updated>2013-05-29T17:05:42+08:00</updated>
   <id>http://xyxdasnjss.github.io/</id>
   <author>
     <name><![CDATA[轩辕 喜东]]></name>
-    
+    <email><![CDATA[xyxdasnjss@163.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[获取UITableView内部高度]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/29/huo-qu-uitableviewnei-bu-gao-du/"/>
+    <updated>2013-05-29T17:01:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/29/huo-qu-uitableviewnei-bu-gao-du</id>
+    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (CGFloat)tableViewHeight
+</span><span class='line'>{
+</span><span class='line'>   [tableView layoutIfNeeded];
+</span><span class='line'>   return [tableView contentSize].height;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[画虚线 未验证]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/23/hua-xu-xian-wei-yan-zheng/"/>
+    <updated>2013-05-23T13:33:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/23/hua-xu-xian-wei-yan-zheng</id>
+    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//画虚线
+</span><span class='line'>CAShapeLayer *_shapeLayer = [CAShapeLayer layer];
+</span><span class='line'>//creating a path
+</span><span class='line'>CGMutablePathRef path = CGPathCreateMutable();
+</span><span class='line'>float cornerRadius = 15;
+</span><span class='line'>//drawing a border around a view
+</span><span class='line'>CGPathMoveToPoint(path, NULL, 0, frame.size.height - cornerRadius);
+</span><span class='line'>CGPathAddLineToPoint(path, NULL, 0, cornerRadius);
+</span><span class='line'>CGPathAddArc(path, NULL, cornerRadius, cornerRadius, cornerRadius, M_PI, -M_PI_2, NO);
+</span><span class='line'>CGPathAddLineToPoint(path, NULL, frame.size.width - cornerRadius, 0);
+</span><span class='line'>CGPathAddArc(path, NULL, frame.size.width - cornerRadius, cornerRadius, cornerRadius, -M_PI_2, 0, NO);
+</span><span class='line'>CGPathAddLineToPoint(path, NULL, frame.size.width, frame.size.height - cornerRadius);
+</span><span class='line'>CGPathAddArc(path, NULL, frame.size.width - cornerRadius, frame.size.height - cornerRadius, cornerRadius, 0, M_PI_2, NO);
+</span><span class='line'>CGPathAddLineToPoint(path, NULL, cornerRadius, frame.size.height);
+</span><span class='line'>CGPathAddArc(path, NULL, cornerRadius, frame.size.height - cornerRadius, cornerRadius, M_PI_2, M_PI, NO);
+</span><span class='line'>
+</span><span class='line'>//path is set as the _shapeLayer object's path
+</span><span class='line'>_shapeLayer.path = path;
+</span><span class='line'>CGPathRelease(path);
+</span><span class='line'>
+</span><span class='line'>_shapeLayer.backgroundColor = [[UIColor clearColor] CGColor];
+</span><span class='line'>_shapeLayer.frame = frame;
+</span><span class='line'>_shapeLayer.masksToBounds = NO;
+</span><span class='line'>[_shapeLayer setValue:[NSNumber numberWithBool:NO] forKey:@"isCircle"];
+</span><span class='line'>_shapeLayer.fillColor = [[UIColor clearColor] CGColor];
+</span><span class='line'>_shapeLayer.strokeColor = [[UIColor redColor] CGColor];
+</span><span class='line'>_shapeLayer.lineWidth = 1;
+</span><span class='line'>_shapeLayer.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:10], nil];
+</span><span class='line'>_shapeLayer.lineCap = kCALineCapRound;
+</span><span class='line'>
+</span><span class='line'>//_shapeLayer is added as a sublayer of the view
+</span><span class='line'>[self.imageBg.layer addSublayer:_shapeLayer];</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[UIImageView 阴影]]></title>
