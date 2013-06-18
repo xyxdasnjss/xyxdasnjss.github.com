@@ -4,7 +4,7 @@
   <title><![CDATA[轩辕喜东]]></title>
   <link href="http://xyxdasnjss.github.io/atom.xml" rel="self"/>
   <link href="http://xyxdasnjss.github.io/"/>
-  <updated>2013-05-29T17:05:42+08:00</updated>
+  <updated>2013-06-18T10:21:51+08:00</updated>
   <id>http://xyxdasnjss.github.io/</id>
   <author>
     <name><![CDATA[轩辕 喜东]]></name>
@@ -12,6 +12,496 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[UITableView小结]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/06/18/uitableviewxiao-jie/"/>
+    <updated>2013-06-18T10:19:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/06/18/uitableviewxiao-jie</id>
+    <content type="html"><![CDATA[<p>UITableViewDataSource</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#pragma mark - UITableViewDataSource
+</span><span class='line'>//一共有多少组（可以不写，默认为1组）
+</span><span class='line'>- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+</span><span class='line'>{
+</span><span class='line'>    return  1;
+</span><span class='line'>}
+</span><span class='line'>//每个组有多少数据
+</span><span class='line'>- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+</span><span class='line'>{
+</span><span class='line'>    return 10;
+</span><span class='line'>}
+</span><span class='line'>//每组数据如何显示
+</span><span class='line'>- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+</span><span class='line'>{
+</span><span class='line'>    
+</span><span class='line'>    static NSString *CellIdentifier = @"Cell_ABC";
+</span><span class='line'>    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier] ;
+</span><span class='line'>    if (cell == nil) {
+</span><span class='line'>        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+</span><span class='line'>        //使用xib自定义时使用
+</span><span class='line'>        //cell = [[[NSBundle mainBundle] loadNibNamed:@"XYContentCell" owner:self options:nil] lastObject];
+</span><span class='line'>        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+</span><span class='line'>        
+</span><span class='line'>    }
+</span><span class='line'>    
+</span><span class='line'>    cell.textLabel.text = @"123";
+</span><span class='line'>    
+</span><span class='line'>    
+</span><span class='line'>    return cell ;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>获取UITableView 内部高度（Content Height）</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (CGFloat)tableViewHeight {
+</span><span class='line'>    [tableView layoutIfNeeded];
+</span><span class='line'>    return [tableView contentSize].height;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>UITableView 某一行 默认是 选中 状态</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSIndexPath *index0 = [NSIndexPath indexPathForRow:0 inSection:0];
+</span><span class='line'>[self.tableView selectRowAtIndexPath:index0
+</span><span class='line'>                            animated:YES
+</span><span class='line'>                      scrollPosition:UITableViewScrollPositionBottom];
+</span><span class='line'>                      </span></code></pre></td></tr></table></div></figure>
+
+
+<p>UITableView 滑动到指定位置</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSArray *visibleRows = [self.mTableView indexPathsForVisibleRows];
+</span><span class='line'>if (visibleRows.count &gt; 0) {
+</span><span class='line'>    NSIndexPath *visibleIndexPath = visibleRows[0];
+</span><span class='line'>    if (visibleIndexPath.row == indexPath.row) {
+</span><span class='line'>        //滑动到 指定位置
+</span><span class='line'>        [self.mTableView scrollToRowAtIndexPath:indexPath
+</span><span class='line'>                               atScrollPosition:UITableViewScrollPositionTop
+</span><span class='line'>                                       animated:YES];
+</span><span class='line'>                                       </span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>UISwitch in a UITableView cell （UITableViewCell里镶嵌UISwitch）</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+</span><span class='line'>    switch( [indexPath row] ) {
+</span><span class='line'>        case MY_SWITCH_CELL: {
+</span><span class='line'>            UITableViewCell* aCell = [tableView dequeueReusableCellWithIdentifier:@"SwitchCell"];
+</span><span class='line'>            if( aCell == nil ) {
+</span><span class='line'>                aCell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"SwitchCell"] autorelease];
+</span><span class='line'>                aCell.textLabel.text = @"I Have A Switch";
+</span><span class='line'>                aCell.selectionStyle = UITableViewCellSelectionStyleNone;
+</span><span class='line'>                UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
+</span><span class='line'>                aCell.accessoryView = switchView;
+</span><span class='line'>                [switchView setOn:NO animated:NO];
+</span><span class='line'>                [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+</span><span class='line'>                [switchView release];
+</span><span class='line'>            }
+</span><span class='line'>            return aCell;
+</span><span class='line'>        }
+</span><span class='line'>            break;
+</span><span class='line'>    }
+</span><span class='line'>    return nil;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (void) switchChanged:(id)sender {
+</span><span class='line'>    UISwitch* switchControl = sender;
+</span><span class='line'>    NSLog( @"The switch is %@", switchControl.on ? @"ON" : @"OFF" );
+</span><span class='line'>}
+</span><span class='line'>     </span></code></pre></td></tr></table></div></figure>
+
+
+<p> <br/>
+自定义UITableView的Header</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+</span><span class='line'>{
+</span><span class='line'>    
+</span><span class='line'>    
+</span><span class='line'>    // create the parent view that will hold header Label
+</span><span class='line'>    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320, 20.0)];
+</span><span class='line'>    
+</span><span class='line'>    UIImageView *bg = [[UIImageView alloc]initWithFrame:customView.frame];
+</span><span class='line'>    
+</span><span class='line'>    bg.image = [UIImage imageNamed:@"carTypeCellTitleBg1.png"];
+</span><span class='line'>    
+</span><span class='line'>    
+</span><span class='line'>    [customView addSubview:bg];
+</span><span class='line'>    
+</span><span class='line'>    // create the button object
+</span><span class='line'>    UILabel * headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+</span><span class='line'>    
+</span><span class='line'>    headerLabel.backgroundColor = [UIColor clearColor];
+</span><span class='line'>    
+</span><span class='line'>    headerLabel.opaque = NO;
+</span><span class='line'>    headerLabel.textColor = [UIColor colorWithRed:242.0/255.0f green:161.0/255.0f blue:4.0/255.0 alpha:1.0];
+</span><span class='line'>    
+</span><span class='line'>    //    headerLabel.highlightedTextColor = [UIColor whiteColor];
+</span><span class='line'>    
+</span><span class='line'>    headerLabel.font = [UIFont italicSystemFontOfSize:15];
+</span><span class='line'>    headerLabel.frame = customView.frame;
+</span><span class='line'>    
+</span><span class='line'>    // If you want to align the header text as centered
+</span><span class='line'>    // headerLabel.frame = CGRectMake(150.0, 0.0, 300.0, 44.0);
+</span><span class='line'>    
+</span><span class='line'>    //    headerLabel.text = &lt;Put here whatever you want to display&gt; // i.e. array element
+</span><span class='line'>    
+</span><span class='line'>    
+</span><span class='line'>    headerLabel.text = @"title";
+</span><span class='line'>    
+</span><span class='line'>    [customView addSubview:headerLabel];
+</span><span class='line'>    
+</span><span class='line'>    return customView;
+</span><span class='line'>    
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+</span><span class='line'>{
+</span><span class='line'>    return 21.0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li></li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath</span></code></pre></td></tr></table></div></figure>
+
+
+<p>方法要比</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 方法</span></code></pre></td></tr></table></div></figure>
+
+
+<p>先返回</p>
+
+<p>即,高度比cell填充先返回</p>
+
+<ol>
+<li><p>xib自定义Cell,复用无效;需要用代码重写</p></li>
+</ol>
+
+
+<p>再一次验证，xib自定义的Cell可以复用
+有两种方式，
+第一种：
+在自定义的Cell里面重写reuseIdentifier方法</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (NSString*)reuseIdentifier
+</span><span class='line'>{
+</span><span class='line'>    //返回的是在- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;方法里定义的reuseIdentifier
+</span><span class='line'>    return @"ContentCELL";
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ASIHttpRequest处理中文Encoding]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding/"/>
+    <updated>2013-05-31T14:56:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding</id>
+    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)requestFinished:(ASIHTTPRequest *)request
+</span><span class='line'>{
+</span><span class='line'>// Use when fetching text data
+</span><span class='line'>//NSString *responseString = [request responseString];
+</span><span class='line'>
+</span><span class='line'>// Use when fetching binary data
+</span><span class='line'>//NSData *responseData = [request responseData];
+</span><span class='line'>
+</span><span class='line'>//设置一下就OK了
+</span><span class='line'>[request setResponseEncoding:NSUTF8StringEncoding] 
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>DLog(@"%@", [request responseString]);
+</span><span class='line'>DLog(@"%@", [[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]);
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[自定义UINavigation Back按钮]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu/"/>
+    <updated>2013-05-30T14:40:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu</id>
+    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>[[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"v1_de_btnback_a.png"]
+</span><span class='line'>                                                 forState:UIControlStateNormal
+</span><span class='line'>                                               barMetrics:UIBarMetricsDefault];
+</span><span class='line'>
+</span><span class='line'>[[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"v1_de_btnback_b.png"]
+</span><span class='line'>                                                  forState:UIControlStateHighlighted
+</span><span class='line'>                                                barMetrics:UIBarMetricsDefault];
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[UITabBar 显示 隐藏]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/30/uitabbar-xian-shi-yin-cang/"/>
+    <updated>2013-05-30T11:06:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/30/uitabbar-xian-shi-yin-cang</id>
+    <content type="html"><![CDATA[<p>隐藏</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)hideTabBar {
+</span><span class='line'>    
+</span><span class='line'>    if (self.tabBarController.tabBar.hidden == YES) {
+</span><span class='line'>        return;
+</span><span class='line'>    }
+</span><span class='line'>    
+</span><span class='line'>    UIView *contentView;
+</span><span class='line'>    if ( [[self.tabBarController.view.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]] ) {
+</span><span class='line'>        contentView = [self.tabBarController.view.subviews objectAtIndex:1];
+</span><span class='line'>        contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"v1_index_topbg.png"]];
+</span><span class='line'>    }else {
+</span><span class='line'>        contentView = [self.tabBarController.view.subviews objectAtIndex:0];
+</span><span class='line'>        contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"v1_index_topbg.png"]];
+</span><span class='line'>    }
+</span><span class='line'>    
+</span><span class='line'>    contentView.frame = CGRectMake(contentView.bounds.origin.x,
+</span><span class='line'>                                   contentView.bounds.origin.y,
+</span><span class='line'>                                   contentView.bounds.size.width,
+</span><span class='line'>                                   contentView.bounds.size.height + self.tabBarController.tabBar.frame.size.height);
+</span><span class='line'>    
+</span><span class='line'>    self.tabBarController.tabBar.hidden = YES;
+</span><span class='line'>    
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>显示</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)showTabBar
+</span><span class='line'>{
+</span><span class='line'>    if (self.tabBarController.tabBar.hidden == NO)
+</span><span class='line'>    {
+</span><span class='line'>        return;
+</span><span class='line'>    }
+</span><span class='line'>    UIView *contentView;
+</span><span class='line'>    if ([[self.tabBarController.view.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]]) {
+</span><span class='line'>        contentView = [self.tabBarController.view.subviews objectAtIndex:1];
+</span><span class='line'>        contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"v1_index_topbg.png"]];
+</span><span class='line'>    }else {
+</span><span class='line'>        contentView = [self.tabBarController.view.subviews objectAtIndex:0];
+</span><span class='line'>        contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"v1_index_topbg.png"]];
+</span><span class='line'>    }
+</span><span class='line'>    contentView.frame = CGRectMake(contentView.bounds.origin.x,
+</span><span class='line'>                                   contentView.bounds.origin.y,
+</span><span class='line'>                                   contentView.bounds.size.width,
+</span><span class='line'>                                   contentView.bounds.size.height - self.tabBarController.tabBar.frame.size.height);
+</span><span class='line'>    self.tabBarController.tabBar.hidden = NO;
+</span><span class='line'>    
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[获取UITableView内部高度]]></title>

@@ -5,11 +5,19 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ddd - 轩辕喜东</title>
+  <title>自定义UINavigation Back按钮 - 轩辕喜东</title>
   <meta name="author" content="轩辕 喜东">
 
   
-  <meta name="description" content="Ddd May 16th, 2013 May 16th, 2013 Comments var duoshuoQuery = {short_name:"xyxdasnjss"}; (function() { var ds = document.createElement('script'); ds &hellip;">
+  <meta name="description" content="1
+2
+3
+4
+5
+6
+7
+8
+9 [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"v1_de_btnback_a.png"] forState: &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +26,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xyxdasnjss.github.io/blog/ios">
+  <link rel="canonical" href="http://xyxdasnjss.github.io/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="" rel="alternate" title="轩辕喜东" type="application/atom+xml">
@@ -63,32 +71,15 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Ddd</h1>
-    <p class="meta">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-16T17:59:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2013</time></p>
-  </header>
-  
-  
-
-  
-    <footer>
+    
+      <h1 class="entry-title">自定义UINavigation Back按钮</h1>
+    
+    
       <p class="meta">
         
-        
 
 
 
@@ -100,19 +91,86 @@
   
 
 
-<time datetime="2013-05-16T17:59:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2013</time>
+<time datetime="2013-05-30T14:40:00+08:00" pubdate data-updated="true">May 30<span>th</span>, 2013</time>
         
-      </p>
       
-        <div class="sharing">
+      | <a href="#comments">Comments</a>
+      
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>[[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"v1_de_btnback_a.png"]
+</span><span class='line'>                                                 forState:UIControlStateNormal
+</span><span class='line'>                                               barMetrics:UIBarMetricsDefault];
+</span><span class='line'>
+</span><span class='line'>[[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"v1_de_btnback_b.png"]
+</span><span class='line'>                                                  forState:UIControlStateHighlighted
+</span><span class='line'>                                                barMetrics:UIBarMetricsDefault];
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">轩辕 喜东</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-30T14:40:00+08:00" pubdate data-updated="true">May 30<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ios/'>iOS</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
   
   
   
 </div>
 
+    
+    <p class="meta">
       
-    </footer>
-  
+        <a class="basic-alignment left" href="/blog/2013/05/30/uitabbar-xian-shi-yin-cang/" title="Previous Post: UITabBar 显示 隐藏">&laquo; UITabBar 显示 隐藏</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding/" title="Next Post: ASIHttpRequest处理中文Encoding">ASIHttpRequest处理中文Encoding &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
 

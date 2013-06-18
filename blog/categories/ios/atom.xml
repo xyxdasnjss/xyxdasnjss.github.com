@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | 轩辕喜东]]></title>
   <link href="http://xyxdasnjss.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://xyxdasnjss.github.io/"/>
-  <updated>2013-05-29T17:05:42+08:00</updated>
+  <updated>2013-06-18T10:21:51+08:00</updated>
   <id>http://xyxdasnjss.github.io/</id>
   <author>
     <name><![CDATA[轩辕 喜东]]></name>
@@ -12,6 +12,324 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[UITableView小结]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/06/18/uitableviewxiao-jie/"/>
+    <updated>2013-06-18T10:19:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/06/18/uitableviewxiao-jie</id>
+    <content type="html"><![CDATA[<p>UITableViewDataSource
+```</p>
+
+<h1>pragma mark &ndash; UITableViewDataSource</h1>
+
+<p>//一共有多少组（可以不写，默认为1组）
+&ndash; (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{</p>
+
+<pre><code>return  1;
+</code></pre>
+
+<p>}
+//每个组有多少数据
+&ndash; (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{</p>
+
+<pre><code>return 10;
+</code></pre>
+
+<p>}
+//每组数据如何显示
+&ndash; (UITableViewCell <em>)tableView:(UITableView </em>)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{</p>
+
+<pre><code>static NSString *CellIdentifier = @"Cell_ABC";
+UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier] ;
+if (cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    //使用xib自定义时使用
+    //cell = [[[NSBundle mainBundle] loadNibNamed:@"XYContentCell" owner:self options:nil] lastObject];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+}
+
+cell.textLabel.text = @"123";
+
+
+return cell ;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>获取UITableView 内部高度（Content Height）
+```
+&ndash; (CGFloat)tableViewHeight {</p>
+
+<pre><code>[tableView layoutIfNeeded];
+return [tableView contentSize].height;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>UITableView 某一行 默认是 选中 状态
+```
+NSIndexPath *index0 = [NSIndexPath indexPathForRow:0 inSection:0];
+[self.tableView selectRowAtIndexPath:index0</p>
+
+<pre><code>                        animated:YES
+                  scrollPosition:UITableViewScrollPositionBottom];
+</code></pre>
+
+<p>```</p>
+
+<p>UITableView 滑动到指定位置
+```
+NSArray *visibleRows = [self.mTableView indexPathsForVisibleRows];
+if (visibleRows.count > 0) {</p>
+
+<pre><code>NSIndexPath *visibleIndexPath = visibleRows[0];
+if (visibleIndexPath.row == indexPath.row) {
+    //滑动到 指定位置
+    [self.mTableView scrollToRowAtIndexPath:indexPath
+                           atScrollPosition:UITableViewScrollPositionTop
+                                   animated:YES];
+</code></pre>
+
+<p>```</p>
+
+<p>UISwitch in a UITableView cell （UITableViewCell里镶嵌UISwitch）
+```
+&ndash; (UITableViewCell <em>)tableView:(UITableView </em>)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {</p>
+
+<pre><code>switch( [indexPath row] ) {
+    case MY_SWITCH_CELL: {
+        UITableViewCell* aCell = [tableView dequeueReusableCellWithIdentifier:@"SwitchCell"];
+        if( aCell == nil ) {
+            aCell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"SwitchCell"] autorelease];
+            aCell.textLabel.text = @"I Have A Switch";
+            aCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
+            aCell.accessoryView = switchView;
+            [switchView setOn:NO animated:NO];
+            [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+            [switchView release];
+        }
+        return aCell;
+    }
+        break;
+}
+return nil;
+</code></pre>
+
+<p>}</p>
+
+<ul>
+<li>(void) switchChanged:(id)sender {
+  UISwitch* switchControl = sender;
+  NSLog( @&ldquo;The switch is %@&rdquo;, switchControl.on ? @&ldquo;ON&rdquo; : @&ldquo;OFF&rdquo; );
+}</li>
+</ul>
+
+
+<p><code>  
+自定义UITableView的Header
+</code>
+&ndash; (UIView <em>)tableView:(UITableView </em>)tableView viewForHeaderInSection:(NSInteger)section
+{</p>
+
+<pre><code>// create the parent view that will hold header Label
+UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320, 20.0)];
+
+UIImageView *bg = [[UIImageView alloc]initWithFrame:customView.frame];
+
+bg.image = [UIImage imageNamed:@"carTypeCellTitleBg1.png"];
+
+
+[customView addSubview:bg];
+
+// create the button object
+UILabel * headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+
+headerLabel.backgroundColor = [UIColor clearColor];
+
+headerLabel.opaque = NO;
+headerLabel.textColor = [UIColor colorWithRed:242.0/255.0f green:161.0/255.0f blue:4.0/255.0 alpha:1.0];
+
+//  headerLabel.highlightedTextColor = [UIColor whiteColor];
+
+headerLabel.font = [UIFont italicSystemFontOfSize:15];
+headerLabel.frame = customView.frame;
+
+// If you want to align the header text as centered
+// headerLabel.frame = CGRectMake(150.0, 0.0, 300.0, 44.0);
+
+//  headerLabel.text = &lt;Put here whatever you want to display&gt; // i.e. array element
+
+
+headerLabel.text = @"title";
+
+[customView addSubview:headerLabel];
+
+return customView;
+</code></pre>
+
+<p>}</p>
+
+<ul>
+<li><p>(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+  return 21.0;
+}
+```</p></li>
+<li><p>```</p></li>
+<li>(CGFloat)tableView:(UITableView <em>)tableView heightForRowAtIndexPath:(NSIndexPath </em>)indexPath
+<code>
+方法要比
+</code></li>
+<li>(UITableViewCell <em>)tableView:(UITableView </em>)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 方法
+```
+先返回</li>
+</ul>
+
+
+<p>即,高度比cell填充先返回</p>
+
+<ol>
+<li><p>xib自定义Cell,复用无效;需要用代码重写</p></li>
+</ol>
+
+
+<p>再一次验证，xib自定义的Cell可以复用
+有两种方式，
+第一种：
+在自定义的Cell里面重写reuseIdentifier方法</p>
+
+<p>```
+&ndash; (NSString*)reuseIdentifier
+{</p>
+
+<pre><code>//返回的是在- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;方法里定义的reuseIdentifier
+return @"ContentCELL";
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ASIHttpRequest处理中文Encoding]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding/"/>
+    <updated>2013-05-31T14:56:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding</id>
+    <content type="html"><![CDATA[<p>```
+&ndash; (void)requestFinished:(ASIHTTPRequest <em>)request
+{
+// Use when fetching text data
+//NSString </em>responseString = [request responseString];</p>
+
+<p>// Use when fetching binary data
+//NSData *responseData = [request responseData];</p>
+
+<p>//设置一下就OK了
+[request setResponseEncoding:NSUTF8StringEncoding]</p>
+
+<p>DLog(@&ldquo;%@&rdquo;, [request responseString]);
+DLog(@&ldquo;%@&rdquo;, [[NSString alloc]initWithData:[request responseData] encoding:NSUTF8StringEncoding]);
+}</p>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[自定义UINavigation Back按钮]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu/"/>
+    <updated>2013-05-30T14:40:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu</id>
+    <content type="html"><![CDATA[<p>```</p>
+
+<p>[[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@&ldquo;v1_de_btnback_a.png&rdquo;]</p>
+
+<pre><code>                                             forState:UIControlStateNormal
+                                           barMetrics:UIBarMetricsDefault];
+</code></pre>
+
+<p>[[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@&ldquo;v1_de_btnback_b.png&rdquo;]</p>
+
+<pre><code>                                              forState:UIControlStateHighlighted
+                                            barMetrics:UIBarMetricsDefault];
+</code></pre>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[UITabBar 显示 隐藏]]></title>
+    <link href="http://xyxdasnjss.github.io/blog/2013/05/30/uitabbar-xian-shi-yin-cang/"/>
+    <updated>2013-05-30T11:06:00+08:00</updated>
+    <id>http://xyxdasnjss.github.io/blog/2013/05/30/uitabbar-xian-shi-yin-cang</id>
+    <content type="html"><![CDATA[<p>隐藏
+```
+&ndash; (void)hideTabBar {</p>
+
+<pre><code>if (self.tabBarController.tabBar.hidden == YES) {
+    return;
+}
+
+UIView *contentView;
+if ( [[self.tabBarController.view.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]] ) {
+    contentView = [self.tabBarController.view.subviews objectAtIndex:1];
+    contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"v1_index_topbg.png"]];
+}else {
+    contentView = [self.tabBarController.view.subviews objectAtIndex:0];
+    contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"v1_index_topbg.png"]];
+}
+
+contentView.frame = CGRectMake(contentView.bounds.origin.x,
+                               contentView.bounds.origin.y,
+                               contentView.bounds.size.width,
+                               contentView.bounds.size.height + self.tabBarController.tabBar.frame.size.height);
+
+self.tabBarController.tabBar.hidden = YES;
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+
+<p>显示
+```
+&ndash; (void)showTabBar
+{</p>
+
+<pre><code>if (self.tabBarController.tabBar.hidden == NO)
+{
+    return;
+}
+UIView *contentView;
+if ([[self.tabBarController.view.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]]) {
+    contentView = [self.tabBarController.view.subviews objectAtIndex:1];
+    contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"v1_index_topbg.png"]];
+}else {
+    contentView = [self.tabBarController.view.subviews objectAtIndex:0];
+    contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"v1_index_topbg.png"]];
+}
+contentView.frame = CGRectMake(contentView.bounds.origin.x,
+                               contentView.bounds.origin.y,
+                               contentView.bounds.size.width,
+                               contentView.bounds.size.height - self.tabBarController.tabBar.frame.size.height);
+self.tabBarController.tabBar.hidden = NO;
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[获取UITableView内部高度]]></title>
@@ -25,89 +343,6 @@
    return [tableView contentSize].height;
 }
 </code></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[画虚线 未验证]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/23/hua-xu-xian-wei-yan-zheng/"/>
-    <updated>2013-05-23T13:33:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/23/hua-xu-xian-wei-yan-zheng</id>
-    <content type="html"><![CDATA[<p>```
-//画虚线
-CAShapeLayer *_shapeLayer = [CAShapeLayer layer];
-//creating a path
-CGMutablePathRef path = CGPathCreateMutable();
-float cornerRadius = 15;
-//drawing a border around a view
-CGPathMoveToPoint(path, NULL, 0, frame.size.height &ndash; cornerRadius);
-CGPathAddLineToPoint(path, NULL, 0, cornerRadius);
-CGPathAddArc(path, NULL, cornerRadius, cornerRadius, cornerRadius, M_PI, -M_PI_2, NO);
-CGPathAddLineToPoint(path, NULL, frame.size.width &ndash; cornerRadius, 0);
-CGPathAddArc(path, NULL, frame.size.width &ndash; cornerRadius, cornerRadius, cornerRadius, -M_PI_2, 0, NO);
-CGPathAddLineToPoint(path, NULL, frame.size.width, frame.size.height &ndash; cornerRadius);
-CGPathAddArc(path, NULL, frame.size.width &ndash; cornerRadius, frame.size.height &ndash; cornerRadius, cornerRadius, 0, M_PI_2, NO);
-CGPathAddLineToPoint(path, NULL, cornerRadius, frame.size.height);
-CGPathAddArc(path, NULL, cornerRadius, frame.size.height &ndash; cornerRadius, cornerRadius, M_PI_2, M_PI, NO);</p>
-
-<p>//path is set as the <em>shapeLayer object&rsquo;s path
-</em>shapeLayer.path = path;
-CGPathRelease(path);</p>
-
-<p><em>shapeLayer.backgroundColor = [[UIColor clearColor] CGColor];
-</em>shapeLayer.frame = frame;
-<em>shapeLayer.masksToBounds = NO;
-[</em>shapeLayer setValue:[NSNumber numberWithBool:NO] forKey:@&ldquo;isCircle&rdquo;];
-<em>shapeLayer.fillColor = [[UIColor clearColor] CGColor];
-</em>shapeLayer.strokeColor = [[UIColor redColor] CGColor];
-<em>shapeLayer.lineWidth = 1;
-</em>shapeLayer.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:10], nil];
-_shapeLayer.lineCap = kCALineCapRound;</p>
-
-<p>//<em>shapeLayer is added as a sublayer of the view
-[self.imageBg.layer addSublayer:</em>shapeLayer];
-```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[UIImageView 阴影]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/17/uiimageview-yin-ying/"/>
-    <updated>2013-05-17T16:45:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/17/uiimageview-yin-ying</id>
-    <content type="html"><![CDATA[<p>```
-// Add background tile<br/>
-UIImage *bgImage = [UIImage imageNamed:@&ldquo;embedded_bg.png&rdquo;];<br/>
-self.view.backgroundColor = [UIColor colorWithPatternImage:bgImage];</p>
-
-<p>// Add the reference view<br/>
-UIImage <em>image = [UIImage imageNamed:@&ldquo;dccp.jpeg&rdquo;];<br/>
-UIImageView </em>imgView = [[UIImageView alloc] initWithImage:image];<br/>
-[self.view addSubview:imgView];<br/>
-imgView.center = self.view.center;</p>
-
-<p>imgView.layer.shadowColor = [UIColor blackColor].CGColor;<br/>
-imgView.layer.shadowOpacity = 0.7f;<br/>
-imgView.layer.shadowOffset = CGSizeMake(10.0f, 10.0f);<br/>
-imgView.layer.shadowRadius = 5.0f;<br/>
-imgView.layer.masksToBounds = NO;</p>
-
-<p>//如果没有这句，渲染会很卡<br/>
-UIBezierPath *path = [UIBezierPath bezierPathWithRect:imgView.bounds];<br/>
-imgView.layer.shadowPath = path.CGPath;</p>
-
-<p>[imgView release];</p>
-
-<p>```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[App]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/17/app/"/>
-    <updated>2013-05-17T09:18:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/17/app</id>
-    <content type="html"><![CDATA[<p>记单词、背单词</p>
 ]]></content>
   </entry>
   
