@@ -9,7 +9,7 @@
   <meta name="author" content="轩辕 喜东">
 
   
-  <meta name="description" content="UITableViewDataSource 1
+  <meta name="description" content="1
 2
 3
 4
@@ -39,8 +39,17 @@
 28
 29
 30
-#pragma mark - UITableViewDataSource
-//一共有多少组（ &hellip;">
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
++ (BOOL)stringContainsEmoji:(NSString &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -95,6 +104,125 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/28/jian-ce-emojibiao-qing/">检测emoji表情</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-28T09:43:00+08:00" pubdate data-updated="true">Jun 28<span>th</span>, 2013</time>
+        
+      
+      | <a href="/blog/2013/06/28/jian-ce-emojibiao-qing/#comments">Comments</a>
+      
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>+ (BOOL)stringContainsEmoji:(NSString *)string
+</span><span class='line'>{
+</span><span class='line'>    __block BOOL returnValue = NO;
+</span><span class='line'>    [string enumerateSubstringsInRange:NSMakeRange(0, [string length]) options:NSStringEnumerationByComposedCharacterSequences usingBlock:
+</span><span class='line'>     ^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+</span><span class='line'>         
+</span><span class='line'>         const unichar hs = [substring characterAtIndex:0];
+</span><span class='line'>         // surrogate pair
+</span><span class='line'>         if (0xd800 &lt;= hs && hs &lt;= 0xdbff) {
+</span><span class='line'>             if (substring.length &gt; 1) {
+</span><span class='line'>                 const unichar ls = [substring characterAtIndex:1];
+</span><span class='line'>                 const int uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;
+</span><span class='line'>                 if (0x1d000 &lt;= uc && uc &lt;= 0x1f77f) {
+</span><span class='line'>                     returnValue = YES;
+</span><span class='line'>                 }
+</span><span class='line'>             }
+</span><span class='line'>         } else if (substring.length &gt; 1) {
+</span><span class='line'>             const unichar ls = [substring characterAtIndex:1];
+</span><span class='line'>             if (ls == 0x20e3) {
+</span><span class='line'>                 returnValue = YES;
+</span><span class='line'>             }
+</span><span class='line'>             
+</span><span class='line'>         } else {
+</span><span class='line'>             // non surrogate
+</span><span class='line'>             if (0x2100 &lt;= hs && hs &lt;= 0x27ff) {
+</span><span class='line'>                 returnValue = YES;
+</span><span class='line'>             } else if (0x2B05 &lt;= hs && hs &lt;= 0x2b07) {
+</span><span class='line'>                 returnValue = YES;
+</span><span class='line'>             } else if (0x2934 &lt;= hs && hs &lt;= 0x2935) {
+</span><span class='line'>                 returnValue = YES;
+</span><span class='line'>             } else if (0x3297 &lt;= hs && hs &lt;= 0x3299) {
+</span><span class='line'>                 returnValue = YES;
+</span><span class='line'>             } else if (hs == 0xa9 || hs == 0xae || hs == 0x303d || hs == 0x3030 || hs == 0x2b55 || hs == 0x2b1c || hs == 0x2b1b || hs == 0x2b50) {
+</span><span class='line'>                 returnValue = YES;
+</span><span class='line'>             }
+</span><span class='line'>         }
+</span><span class='line'>     }];
+</span><span class='line'>    
+</span><span class='line'>    return returnValue;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1029,12 +1157,16 @@
     <section>
     <h1>Categories</h1>
     <ul id="categories">
-        <li class='category'><a href='/blog/categories/ios/'>iOS (8)</a></li>
+        <li class='category'><a href='/blog/categories/ios/'>iOS (9)</a></li>
 
     </ul>
 </section><section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/06/28/jian-ce-emojibiao-qing/">检测emoji表情</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/06/18/uitableviewxiao-jie/">UITableView小结</a>
@@ -1050,10 +1182,6 @@
     
       <li class="post">
         <a href="/blog/2013/05/30/uitabbar-xian-shi-yin-cang/">UITabBar 显示 隐藏</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/05/29/huo-qu-uitableviewnei-bu-gao-du/">获取UITableView内部高度</a>
       </li>
     
   </ul>
