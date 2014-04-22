@@ -1,61 +1,63 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://xyxdasnjss.github.io/blog/2013/05/16/hello-world/</loc>
+        <loc>www.xuanyuan18.com/blog/2013/05/16/hello-world/</loc>
         <lastmod>2013-05-29T16:31:21+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxdasnjss.github.io/blog/2013/05/17/app/</loc>
+        <loc>www.xuanyuan18.com/blog/2013/05/17/app/</loc>
         <lastmod>2013-05-29T16:31:21+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxdasnjss.github.io/blog/2013/05/17/uiimageview-yin-ying/</loc>
+        <loc>www.xuanyuan18.com/blog/2013/05/17/uiimageview-yin-ying/</loc>
         <lastmod>2013-05-29T16:31:21+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxdasnjss.github.io/blog/2013/05/23/hua-xu-xian-wei-yan-zheng/</loc>
+        <loc>www.xuanyuan18.com/blog/2013/05/23/hua-xu-xian-wei-yan-zheng/</loc>
         <lastmod>2013-05-29T16:31:21+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxdasnjss.github.io/blog/2013/05/29/huo-qu-uitableviewnei-bu-gao-du/</loc>
+        <loc>www.xuanyuan18.com/blog/2013/05/29/huo-qu-uitableviewnei-bu-gao-du/</loc>
         <lastmod>2013-05-29T17:02:29+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxdasnjss.github.io/blog/2013/05/30/uitabbar-xian-shi-yin-cang/</loc>
+        <loc>www.xuanyuan18.com/blog/2013/05/30/uitabbar-xian-shi-yin-cang/</loc>
         <lastmod>2013-05-30T11:07:23+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxdasnjss.github.io/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu/</loc>
+        <loc>www.xuanyuan18.com/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu/</loc>
         <lastmod>2013-05-30T14:41:33+08:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://xyxdasnjss.github.io/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding/
-        </loc>
+        <loc>www.xuanyuan18.com/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding/</loc>
         <lastmod>2013-05-31T14:57:51+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxdasnjss.github.io/blog/2013/06/18/uitableviewxiao-jie/</loc>
+        <loc>www.xuanyuan18.com/blog/2013/06/18/uitableviewxiao-jie/</loc>
         <lastmod>2013-06-18T10:20:56+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxdasnjss.github.io/blog/2013/06/28/jian-ce-emojibiao-qing/</loc>
+        <loc>www.xuanyuan18.com/blog/2013/06/28/jian-ce-emojibiao-qing/</loc>
         <lastmod>2013-06-28T09:44:00+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxdasnjss.github.io/blog/archives/</loc>
-        <lastmod>2013-06-28T09:44:00+08:00</lastmod>
+        <loc>www.xuanyuan18.com/blog/2013/09/25/yin-si-quan-bao-hu-sheng-ming/</loc>
+        <lastmod>2013-09-25T11:47:30+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxdasnjss.github.io/blog/ios/</loc>
+        <loc>www.xuanyuan18.com/blog/archives/</loc>
+        <lastmod>2013-09-25T11:47:30+08:00</lastmod>
+    </url>
+    <url>
+        <loc>www.xuanyuan18.com/blog/ios/</loc>
         <lastmod>2013-05-29T16:31:56+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxdasnjss.github.io/</loc>
-        <lastmod>2013-06-28T09:44:00+08:00</lastmod>
+        <loc>www.xuanyuan18.com/</loc>
+        <lastmod>2013-09-25T11:47:30+08:00</lastmod>
     </url>
     <url>
-        <loc>http://xyxdasnjss.github.io/robots.txt</loc>
+        <loc>www.xuanyuan18.com/robots.txt</loc>
         <lastmod>2013-05-16T10:45:01+08:00</lastmod>
     </url>
 </urlset>

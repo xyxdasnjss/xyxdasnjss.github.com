@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: iOS | 轩辕喜东]]></title>
-  <link href="http://xyxdasnjss.github.io/blog/categories/ios/atom.xml" rel="self"/>
-  <link href="http://xyxdasnjss.github.io/"/>
-  <updated>2013-07-29T18:29:43+08:00</updated>
-  <id>http://xyxdasnjss.github.io/</id>
+  <link href="www.xuanyuan18.com/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="www.xuanyuan18.com/"/>
+  <updated>2014-04-22T10:04:55+08:00</updated>
+  <id>www.xuanyuan18.com/</id>
   <author>
     <name><![CDATA[轩辕 喜东]]></name>
     <email><![CDATA[xyxdasnjss@163.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[检测emoji表情]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/06/28/jian-ce-emojibiao-qing/"/>
+    <link href="www.xuanyuan18.com/blog/2013/06/28/jian-ce-emojibiao-qing/"/>
     <updated>2013-06-28T09:43:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/06/28/jian-ce-emojibiao-qing</id>
+    <id>www.xuanyuan18.com/blog/2013/06/28/jian-ce-emojibiao-qing</id>
     <content type="html"><![CDATA[<p>```
 + (BOOL)stringContainsEmoji:(NSString *)string
 {</p>
@@ -68,9 +68,9 @@ return returnValue;
   
   <entry>
     <title type="html"><![CDATA[UITableView小结]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/06/18/uitableviewxiao-jie/"/>
+    <link href="www.xuanyuan18.com/blog/2013/06/18/uitableviewxiao-jie/"/>
     <updated>2013-06-18T10:19:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/06/18/uitableviewxiao-jie</id>
+    <id>www.xuanyuan18.com/blog/2013/06/18/uitableviewxiao-jie</id>
     <content type="html"><![CDATA[<p>UITableViewDataSource
 ```</p>
 
@@ -274,9 +274,9 @@ return @"ContentCELL";
   
   <entry>
     <title type="html"><![CDATA[ASIHttpRequest处理中文Encoding]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding/"/>
+    <link href="www.xuanyuan18.com/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding/"/>
     <updated>2013-05-31T14:56:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding</id>
+    <id>www.xuanyuan18.com/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding</id>
     <content type="html"><![CDATA[<p>```
 &ndash; (void)requestFinished:(ASIHTTPRequest <em>)request
 {
@@ -299,9 +299,9 @@ DLog(@&ldquo;%@&rdquo;, [[NSString alloc]initWithData:[request responseData] enc
   
   <entry>
     <title type="html"><![CDATA[自定义UINavigation Back按钮]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu/"/>
+    <link href="www.xuanyuan18.com/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu/"/>
     <updated>2013-05-30T14:40:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu</id>
+    <id>www.xuanyuan18.com/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu</id>
     <content type="html"><![CDATA[<p>```</p>
 
 <p>[[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@&ldquo;v1_de_btnback_a.png&rdquo;]</p>
@@ -322,9 +322,9 @@ DLog(@&ldquo;%@&rdquo;, [[NSString alloc]initWithData:[request responseData] enc
   
   <entry>
     <title type="html"><![CDATA[UITabBar 显示 隐藏]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/30/uitabbar-xian-shi-yin-cang/"/>
+    <link href="www.xuanyuan18.com/blog/2013/05/30/uitabbar-xian-shi-yin-cang/"/>
     <updated>2013-05-30T11:06:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/30/uitabbar-xian-shi-yin-cang</id>
+    <id>www.xuanyuan18.com/blog/2013/05/30/uitabbar-xian-shi-yin-cang</id>
     <content type="html"><![CDATA[<p>隐藏
 ```
 &ndash; (void)hideTabBar {</p>

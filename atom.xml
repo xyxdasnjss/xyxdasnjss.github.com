@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[轩辕喜东]]></title>
-  <link href="http://xyxdasnjss.github.io/atom.xml" rel="self"/>
-  <link href="http://xyxdasnjss.github.io/"/>
-  <updated>2013-07-29T18:29:43+08:00</updated>
-  <id>http://xyxdasnjss.github.io/</id>
+  <link href="www.xuanyuan18.com/atom.xml" rel="self"/>
+  <link href="www.xuanyuan18.com/"/>
+  <updated>2014-04-22T10:04:55+08:00</updated>
+  <id>www.xuanyuan18.com/</id>
   <author>
     <name><![CDATA[轩辕 喜东]]></name>
     <email><![CDATA[xyxdasnjss@163.com]]></email>
@@ -14,10 +14,66 @@
 
   
   <entry>
+    <title type="html"><![CDATA[隐私权保护声明]]></title>
+    <link href="www.xuanyuan18.com/blog/2013/09/25/yin-si-quan-bao-hu-sheng-ming/"/>
+    <updated>2013-09-25T11:29:00+08:00</updated>
+    <id>www.xuanyuan18.com/blog/2013/09/25/yin-si-quan-bao-hu-sheng-ming</id>
+    <content type="html"><![CDATA[<pre><code>隐私协议
+
+轩辕无线互联（XYXD，以下称"我们"）隐私权保护声明保护用户个人隐私的承诺。
+鉴于移动产品和网站的特性，我们将无可避免地与您产生直接或间接的互动关系，故特此说明我们对用户个人信息所采取的收集、使用和保护政策，请您务必仔细阅读：
+</code></pre>
+
+<p>　　一、使用者非个人化信息
+　　当您下载和使用我们移动应用程序时，我们不要求您提供任何信息，我们不会收集任何个人信息，除了非个人信息，例如您的设备类型、操作系统、种类、给您提供接入服务的ISP的域名等，以优化在您设备屏幕上显示的页面，给您提供更好的体验。
+　　我们不会有意联系或收集13岁以下儿童的个人信息。如果你相信，我们已经在不经意间收集此类信息，请联系我们，这样我们就可以删除信息。
+　　由第三方收集非个人信息可能包括下列技术资料：
+　　o操作系统（如安卓，IOS等）
+　　o浏览器（如火狐，Chrome浏览器，Safari浏览器等）
+　　o屏幕分辨率（如800×600，1024×768，等）
+　　o语言（如英语）
+　　o设备供应商（如三星，HTC，iPhone等）
+　　o地理位置-只是一般的位置可能会被收集。没有精确的地理位置信息。</p>
+
+<p>　　二、第三方网站的链接
+　　为了更好地和您沟通，在家长中心中我们可能会提供链接或连接到第三方网站或服务，家长可以选择使用。我们对孩子获得这些跳出程序的链接做出了限制（需要&#8221;家长门&#8221;的认可），我们不负责为这些第三方网站的隐私做法或内容。</p>
+
+<p>　　三、隐私协议的更改
+　　我们对本隐私协议保留更改权利。请定期检查是否有任何变化。您继续访问和使用服务后张贴的任何修订，删除或其他更改隐私政策，将构成您接受，承认和同意各自变化。</p>
+
+<p>　　四、联系我们
+　　如果您对我们的隐私政策有任何问题或疑虑，请联系我们：<a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x78;&#x79;&#120;&#x64;&#x61;&#x73;&#110;&#106;&#115;&#x73;&#x40;&#x31;&#x36;&#51;&#x2e;&#99;&#111;&#109;">&#x78;&#121;&#x78;&#100;&#97;&#x73;&#110;&#106;&#115;&#x73;&#64;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;</a></p>
+
+<p>　　Private Policy
+　　XYXD apps (&ldquo;we&rdquo;) respect the privacy of its users (&ldquo;User&rdquo; or &ldquo;You&rdquo;) and are committed to protect the User&rsquo;s information, be it yours or your child&rsquo;s. We believe that You have a right to know our practices regarding the information we may collect and use when You use our mobile applications. Please read it carefully.</p>
+
+<p>　　Non Personal Information
+　　When you download and use our mobile applications, we don&rsquo;t require you to provide any information and we don&rsquo;t collect any personal information, except for non-personal information like unique device identifiers, cookies (small files installed by your browser) to anonymously identify your computer or device so we can deliver a better experience.
+　　We do not knowingly contact or collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us so we can remove the information.
+　　Non Personal Information collected by Third Parties may include the following technical information:
+　　&#8221;    >Type of operation system (e.g. Android, iOS, etc.)
+　　&#8221;    >Type of browser (e.g. Explorer, Firefox, Chrome, Safari, etc.)
+　　&#8221;    >Screen resolution (e.g. 800×600, 1024×768, etc.)
+　　&#8221;    >Language (e.g. English)
+　　&#8221;    >Device Vendor (e.g. Galaxy, HTC, iPhone, etc.)
+　　&#8221;    >Geo-location &ndash; only general location may be collected. No street name or city/town name is collected.</p>
+
+<p>　　Links to Third Party Sites
+　　We may provide links and/or connections to third-party web sites or services from our apps, (We set a &lsquo;parental gate&rsquo; which will help to protect your children&rsquo;s safety. Without parental permission, your children will not be access to links to external mechanisms for purchases.). We are not responsible for the privacy practices or content of these third-party sites.</p>
+
+<p>　　Changes to this Privacy Policy
+　　XYXD reserves the right, at its full and complete discretion to change, modify, amend, add, subtract, portions of its Privacy Policy at any time. We will post any updates to the Privacy Policy on this page. Please periodically check for any changes.</p>
+
+<p>　　Contact Us
+　　If you have any questions or concerns about our privacy policies, please contact us: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x78;&#121;&#x78;&#x64;&#97;&#x73;&#x6e;&#x6a;&#115;&#x73;&#x40;&#49;&#54;&#51;&#46;&#x63;&#111;&#109;">&#120;&#x79;&#x78;&#x64;&#97;&#115;&#x6e;&#106;&#115;&#x73;&#64;&#49;&#x36;&#51;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[检测emoji表情]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/06/28/jian-ce-emojibiao-qing/"/>
+    <link href="www.xuanyuan18.com/blog/2013/06/28/jian-ce-emojibiao-qing/"/>
     <updated>2013-06-28T09:43:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/06/28/jian-ce-emojibiao-qing</id>
+    <id>www.xuanyuan18.com/blog/2013/06/28/jian-ce-emojibiao-qing</id>
     <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -104,9 +160,9 @@
   
   <entry>
     <title type="html"><![CDATA[UITableView小结]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/06/18/uitableviewxiao-jie/"/>
+    <link href="www.xuanyuan18.com/blog/2013/06/18/uitableviewxiao-jie/"/>
     <updated>2013-06-18T10:19:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/06/18/uitableviewxiao-jie</id>
+    <id>www.xuanyuan18.com/blog/2013/06/18/uitableviewxiao-jie</id>
     <content type="html"><![CDATA[<p>UITableViewDataSource</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -419,9 +475,9 @@
   
   <entry>
     <title type="html"><![CDATA[ASIHttpRequest处理中文Encoding]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding/"/>
+    <link href="www.xuanyuan18.com/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding/"/>
     <updated>2013-05-31T14:56:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding</id>
+    <id>www.xuanyuan18.com/blog/2013/05/31/asihttprequestchu-li-zhong-wen-encoding</id>
     <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -461,9 +517,9 @@
   
   <entry>
     <title type="html"><![CDATA[自定义UINavigation Back按钮]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu/"/>
+    <link href="www.xuanyuan18.com/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu/"/>
     <updated>2013-05-30T14:40:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu</id>
+    <id>www.xuanyuan18.com/blog/2013/05/30/zi-ding-yi-uinavigation-backan-niu</id>
     <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -489,9 +545,9 @@
   
   <entry>
     <title type="html"><![CDATA[UITabBar 显示 隐藏]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/30/uitabbar-xian-shi-yin-cang/"/>
+    <link href="www.xuanyuan18.com/blog/2013/05/30/uitabbar-xian-shi-yin-cang/"/>
     <updated>2013-05-30T11:06:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/30/uitabbar-xian-shi-yin-cang</id>
+    <id>www.xuanyuan18.com/blog/2013/05/30/uitabbar-xian-shi-yin-cang</id>
     <content type="html"><![CDATA[<p>隐藏</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -594,9 +650,9 @@
   
   <entry>
     <title type="html"><![CDATA[获取UITableView内部高度]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/29/huo-qu-uitableviewnei-bu-gao-du/"/>
+    <link href="www.xuanyuan18.com/blog/2013/05/29/huo-qu-uitableviewnei-bu-gao-du/"/>
     <updated>2013-05-29T17:01:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/29/huo-qu-uitableviewnei-bu-gao-du</id>
+    <id>www.xuanyuan18.com/blog/2013/05/29/huo-qu-uitableviewnei-bu-gao-du</id>
     <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -613,9 +669,9 @@
   
   <entry>
     <title type="html"><![CDATA[画虚线 未验证]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/23/hua-xu-xian-wei-yan-zheng/"/>
+    <link href="www.xuanyuan18.com/blog/2013/05/23/hua-xu-xian-wei-yan-zheng/"/>
     <updated>2013-05-23T13:33:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/23/hua-xu-xian-wei-yan-zheng</id>
+    <id>www.xuanyuan18.com/blog/2013/05/23/hua-xu-xian-wei-yan-zheng</id>
     <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -686,9 +742,9 @@
   
   <entry>
     <title type="html"><![CDATA[UIImageView 阴影]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/17/uiimageview-yin-ying/"/>
+    <link href="www.xuanyuan18.com/blog/2013/05/17/uiimageview-yin-ying/"/>
     <updated>2013-05-17T16:45:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/17/uiimageview-yin-ying</id>
+    <id>www.xuanyuan18.com/blog/2013/05/17/uiimageview-yin-ying</id>
     <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -738,18 +794,18 @@
   
   <entry>
     <title type="html"><![CDATA[App]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/17/app/"/>
+    <link href="www.xuanyuan18.com/blog/2013/05/17/app/"/>
     <updated>2013-05-17T09:18:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/17/app</id>
+    <id>www.xuanyuan18.com/blog/2013/05/17/app</id>
     <content type="html"><![CDATA[<p>记单词、背单词</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[hello world]]></title>
-    <link href="http://xyxdasnjss.github.io/blog/2013/05/16/hello-world/"/>
+    <link href="www.xuanyuan18.com/blog/2013/05/16/hello-world/"/>
     <updated>2013-05-16T11:13:00+08:00</updated>
-    <id>http://xyxdasnjss.github.io/blog/2013/05/16/hello-world</id>
+    <id>www.xuanyuan18.com/blog/2013/05/16/hello-world</id>
     <content type="html"><![CDATA[<p>Hello world!</p>
 ]]></content>
   </entry>
